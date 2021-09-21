@@ -1,0 +1,141 @@
+@import "../../../../mixins.scss";
+
+.order_confirm {
+  width: 100%;
+  max-width: 672px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  @include orderPadding();
+  @include phone {
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 95%;
+    padding-left: 0;
+  }
+  &_info {
+    &_car {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 21px;
+      margin: 0;
+      margin-top: 32px;
+    }
+    &_plate {
+      border: 1px solid #999999;
+      box-sizing: border-box;
+      border-radius: 4px;
+      width: fit-content;
+      padding: 4px 8px;
+      margin: 0;
+      margin-top: 8px;
+    }
+    &_additional {
+      margin: 0;
+      margin-top: 8px;
+      span {
+        font-weight: bold;
+        font-size: 14px;
+        color: #121212;
+      }
+    }
+  }
+  &_car {
+    max-width: 256px;
+    height: auto;
+    img {
+      margin-top: 32px;
+      max-width: 256px;
+    }
+  }
+  &_popup {
+    position: fixed;
+    left: 0;
+    z-index: 999;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 28px;
+      color: #121212;
+    }
+    &_content {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    &_accept {
+      background: linear-gradient(90deg, #0ec261 2.61%, #039f67 112.6%);
+      background-blend-mode: darken;
+      width: 177px;
+      height: 48px;
+      margin-right: 8px;
+
+      @include phone {
+        margin: 0;
+      }
+      &:hover {
+        background: linear-gradient(
+          90deg,
+          hsl(148, 87%, 31%) 2.61%,
+          hsl(158, 96%, 22%) 112.6%
+        );
+      }
+      &_pressed {
+        &:hover {
+          background: linear-gradient(
+            90deg,
+            hsl(148, 77%, 31%) 2.61%,
+            hsl(158, 86%, 22%) 112.6%
+          );
+        }
+      }
+    }
+    &_cancel {
+      background: linear-gradient(90deg, #493013 0%, #7b0c3b 100%);
+      width: 177px;
+      height: 48px;
+      margin-left: 8px;
+      @include phone {
+        margin: 0;
+        margin-top: 8px;
+      }
+      &:hover {
+        background: linear-gradient(
+          90deg,
+          hsl(32, 59%, 10%) 0%,
+          hsl(335, 62%, 16%) 100%
+        );
+      }
+      &_pressed {
+        &:hover {
+          background: linear-gradient(
+            90deg,
+            hsl(32, 39%, 18%) 0%,
+            hsl(335, 62%, 26%) 100%
+          );
+        }
+      }
+    }
+    &_buttons {
+      @include phone {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+  &_closedPopup {
+    display: none;
+  }
+}

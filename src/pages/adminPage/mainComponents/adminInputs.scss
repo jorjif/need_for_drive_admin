@@ -1,0 +1,116 @@
+@import "../../../mixins.scss";
+.admin-radio {
+  &_checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 11px;
+    width: 11px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: solid 1px #999;
+  }
+  &_label {
+    font-size: 14px;
+    line-height: 16px;
+    color: #495057;
+    cursor: pointer;
+  }
+  &_container {
+    margin-left: 16px;
+    padding-left: 20px;
+    display: block;
+    position: relative;
+    margin-bottom: 16px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    @include phone {
+      margin-left: 8px;
+    }
+    &:first-child {
+      margin: 0;
+    }
+    input {
+      position: absolute;
+      top: -6px;
+      left: -9px;
+      opacity: 0;
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      &:checked {
+        ~ .admin-radio_checkmark {
+          border: solid 3px hsl(211, 100%, 50%);
+          width: 8px;
+          height: 8px;
+        }
+        ~ .admin-radio_label {
+          color: #121212;
+        }
+      }
+    }
+  }
+}
+
+.admin-input {
+  &_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  &_label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10.5px;
+    color: #121212;
+    margin-bottom: 4.5px;
+  }
+  &_textfield {
+    background: #ffffff;
+    border: 1px solid #becad6;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: #121212;
+    height: 30px;
+    width: 320px;
+    &:focus {
+      outline: 1px solid hsl(211, 100%, 50%);
+    }
+    &_error {
+      border: 0.5px solid #c4183c;
+      box-sizing: border-box;
+      box-shadow: 0px 2.5px 5.5px rgba(196, 24, 60, 0.1);
+      border-radius: 4px;
+    }
+  }
+  &_error {
+    margin-top: 4.5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    color: #c4183c;
+  }
+}
+
+.admin-button {
+  background: hsl(211, 100%, 50%);
+  border: 0.5px solid hsl(211, 100%, 50%);
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 8px 15px;
+  color: #ffffff;
+  font-size: 11.5px;
+  min-width: 90px;
+  &:hover {
+    background: hsl(211, 100%, 60%);
+    border: 0.5px solid hsl(211, 100%, 60%);
+  }
+  &_pressed:hover {
+    background: hsl(211, 100%, 40%);
+    border: 0.5px solid hsl(211, 100%, 40%);
+  }
+}

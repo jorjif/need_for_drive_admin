@@ -1,0 +1,86 @@
+@import "../../../../mixins.scss";
+.order_cars {
+  width: 100%;
+  max-width: 736px;
+  display: flex;
+  flex-direction: column;
+  @include phone {
+    padding-left: 2vw;
+    width: 95%;
+  }
+  @include orderPadding();
+  &_form {
+    width: 100%;
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-start;
+    :first-child {
+      margin-left: 0;
+    }
+  }
+  &_list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    @include phone {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+.order_card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 1px solid #eee;
+  max-width: 368px;
+  max-height: 225px;
+  box-sizing: border-box;
+
+  @include phone {
+    width: 96vw;
+    height: auto;
+  }
+  &_name {
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 21px;
+    color: #121212;
+    margin: 0;
+    padding-left: 8px;
+  }
+  &_price {
+    font-size: 14px;
+    font-weight: normal;
+    color: #999999;
+    margin: 0;
+    padding-left: 8px;
+  }
+  &_image {
+    align-self: flex-end;
+    max-width: 120px;
+    width: auto;
+    height: auto;
+    align-self: flex-end;
+    justify-self: flex-end;
+    margin-right: 16px;
+    &_container {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+  &:hover {
+    border: 1px solid #999;
+  }
+  &_focused {
+    border: 1px solid #0ec261;
+    &:hover {
+      border: 1px solid hsl(148, 87%, 31%);
+    }
+  }
+}

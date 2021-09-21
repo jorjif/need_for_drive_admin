@@ -1,0 +1,149 @@
+@import "./mixins.scss";
+html {
+  height: 100vh;
+}
+body {
+  margin: 0;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  a {
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    text-decoration: none;
+    &:visited {
+      color: inherit;
+    }
+  }
+  font-size: 14px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+#root {
+  height: 100%;
+}
+.page {
+  min-height: 100%;
+  display: flex;
+}
+.button {
+  background-blend-mode: darken;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #fff;
+  height: 48px;
+  width: 250px;
+  border: unset;
+  cursor: pointer;
+  transition: border 0.2s;
+  &:hover {
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+.radio {
+  &_checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 11px;
+    width: 11px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: solid 1px #999;
+  }
+  &_label {
+    font-size: 14px;
+    line-height: 16px;
+    color: #999999;
+    cursor: pointer;
+  }
+  &_container {
+    margin-left: 16px;
+    padding-left: 20px;
+    display: block;
+    position: relative;
+    margin-bottom: 16px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    @include phone {
+      margin-left: 8px;
+    }
+    &:first-child {
+      margin: 0;
+    }
+    input {
+      position: absolute;
+      top: -5px;
+      left: -9px;
+      opacity: 0;
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      &:checked {
+        ~ .radio_checkmark {
+          border: solid 3px #0ec261;
+          width: 9px;
+          height: 9px;
+        }
+        ~ .radio_label {
+          color: #121212;
+        }
+      }
+    }
+  }
+}
+.checkbox {
+  display: grid;
+  grid-template-columns: min-content auto;
+  gap: 8px;
+  &_input {
+    display: grid;
+    grid-template-areas: "checkbox";
+    > * {
+      grid-area: checkbox;
+    }
+    input {
+      opacity: 0;
+      width: 1em;
+      height: 1em;
+      &:checked + .checkbox_control {
+        border: 1px solid #0ec261;
+        svg {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+  &_control {
+    display: inline-grid;
+    width: 12px;
+    height: 12px;
+    border-radius: 0;
+    border: 1px solid #999;
+    svg {
+      margin-left: 2px;
+      transition: transform 0.1s ease-in 25ms;
+      transform: scale(0);
+      transform-origin: bottom left;
+    }
+  }
+  &_label {
+    cursor: pointer;
+  }
+}

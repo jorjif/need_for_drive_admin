@@ -1,0 +1,103 @@
+@import "../../../../mixins.scss";
+@mixin orderPadding {
+  padding-left: 64px;
+  @include ultrawide {
+    padding-left: #{"max(64px, 20vw)"};
+  }
+}
+.order_options {
+  width: 60%;
+  min-width: 300px;
+  height: 100%;
+  max-width: 736px;
+  @include orderPadding();
+  @include phone {
+    padding-left: 0;
+  }
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 32px;
+    legend {
+      padding: 0;
+      margin-bottom: 16px;
+    }
+  }
+  &_color {
+    &_inpField {
+      display: flex;
+      flex-direction: row;
+      @include phone {
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &_date {
+    &_form {
+      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      @include phone {
+        align-items: flex-start;
+      }
+      label {
+        text-align: end;
+        @include phone {
+          text-align: start;
+          width: 50px;
+        }
+      }
+      &_input {
+        display: flex;
+        align-items: flex-end;
+        margin-top: 16px;
+        @include phone {
+          align-items: center;
+        }
+        &:first-child {
+          margin-top: 0;
+        }
+        &_textfield {
+          font-family: inherit;
+          outline: none;
+          margin-left: 8px;
+          width: 224px;
+          border: none;
+          border-bottom: 1px solid #999;
+          div {
+            border: none !important;
+          }
+        }
+        &_delete {
+          background: none;
+          border: none;
+          border-bottom: 1px solid #999;
+        }
+      }
+    }
+  }
+  &_tariff {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    label {
+      margin-left: 0;
+      margin-bottom: 8px;
+    }
+  }
+  &_options {
+    fieldset {
+      display: flex;
+      flex-direction: column;
+      label {
+        margin-bottom: 8px;
+      }
+      input {
+        margin-left: 0;
+      }
+    }
+  }
+}

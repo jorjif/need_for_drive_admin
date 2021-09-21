@@ -1,0 +1,169 @@
+@import "../../../mixins";
+.slider {
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  @include tablet {
+    display: none;
+  }
+  &_content {
+    height: 100vh;
+    width: 400%;
+    display: flex;
+    z-index: 2;
+  }
+  &_arrow {
+    display: flex;
+    position: absolute;
+    height: 100vh;
+    width: clamp(32px, 3vw, 64px);
+    justify-content: center;
+    background: transparent;
+    cursor: pointer;
+    align-items: center;
+    z-index: 7;
+    transition: background-color 0.2s;
+    &:hover {
+      background-color: hsla(148, 87%, 41%, 0.2);
+    }
+    &_right {
+      right: 0px;
+    }
+  }
+}
+
+.slide {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h2 {
+    margin-left: #{"max(64px, 7vw)"};
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 47px;
+    width: 60%;
+  }
+  p {
+    width: 60%;
+    margin-left: #{"max(64px, 7vw)"};
+    font-style: normal;
+    margin-top: 0;
+    color: #eee;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 100%;
+  }
+  button {
+    margin-left: #{"max(64px, 7vw)"};
+    width: 164px;
+    height: 48px;
+  }
+}
+
+.slider_button1 {
+  background: linear-gradient(90deg, #13493f 0%, #0c7b1b 100%);
+  &:hover {
+    background: linear-gradient(
+      90deg,
+      hsl(169, 49%, 18%) 0%,
+      hsl(128, 72%, 26%) 100%
+    );
+  }
+  &_pressed {
+    &:hover {
+      background: linear-gradient(
+        90deg,
+        hsl(169, 39%, 18%) 0%,
+        hsl(128, 62%, 26%) 100%
+      );
+    }
+  }
+}
+
+.slider_button2 {
+  background: linear-gradient(90deg, #132949 0%, #0c7b67 100%);
+  &:hover {
+    background: linear-gradient(
+      90deg,
+      hsl(216, 49%, 18%) 0%,
+      hsl(169, 72%, 26%) 100%
+    );
+  }
+  &_pressed {
+    &:hover {
+      background: linear-gradient(
+        90deg,
+        hsl(216, 39%, 18%) 0%,
+        hsl(169, 62%, 26%) 100%
+      );
+    }
+  }
+}
+
+.slider_button3 {
+  background: linear-gradient(90deg, #493013 0%, #7b0c3b 100%);
+  &:hover {
+    background: linear-gradient(
+      90deg,
+      hsl(32, 49%, 18%) 0%,
+      hsl(335, 72%, 26%) 100%
+    );
+  }
+  &_pressed {
+    &:hover {
+      background: linear-gradient(
+        90deg,
+        hsl(32, 39%, 18%) 0%,
+        hsl(335, 62%, 26%) 100%
+      );
+    }
+  }
+}
+
+.slider_button4 {
+  background: linear-gradient(90deg, hsl(263, 59%, 18%) 0%, hsl(295, 82%, 26%) 100%);
+  &:hover {
+    background: linear-gradient(
+      90deg,
+      hsl(263, 49%, 18%) 0%,
+      hsl(295, 72%, 26%) 100%
+    );
+  }
+
+  &_pressed {
+    &:hover {
+      background: linear-gradient(
+        90deg,
+        hsl(263, 39%, 18%) 0%,
+        hsl(295, 62%, 26%) 100%
+      );
+    }
+  }
+}
+
+.slider_dots {
+  position: absolute;
+  bottom: 25px;
+  width: 45vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &_dot {
+    padding: 4px;
+    margin-right: 2px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #fff;
+  }
+}
+
+.active_dot {
+  background: hsla(148, 87%, 41%, 1);
+}

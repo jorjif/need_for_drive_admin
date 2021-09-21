@@ -1,0 +1,26 @@
+/*миксин для планшета*/
+@mixin tablet {
+  @media screen and (max-width: 1023px) {
+    @content;
+  }
+}
+/*миксин для телефона*/
+@mixin phone {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin ultrawide {
+  @media screen and (min-width: 1440px) {
+    @content;
+  }
+}
+@mixin orderPadding {
+  padding-left: 64px;
+  @include tablet {
+    padding-left: 16px;
+  }
+  @include ultrawide {
+    padding-left: #{"max(64px, 20vw)"};
+  }
+}

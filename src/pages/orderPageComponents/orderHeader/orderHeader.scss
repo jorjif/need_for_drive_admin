@@ -1,0 +1,86 @@
+@import "../../../mixins.scss";
+.order {
+  &_header {
+    /*заголовок страницы - геолокация, навбар*/
+    width: 100%;
+    &_header {
+      display: flex;
+      justify-content: space-between;
+      width: auto;
+      max-width: 1257px;
+      p {
+        margin-right: 32px;
+        @include phone {
+          margin-right: 10px;
+        }
+      }
+      @include phone {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      @include orderPadding();
+      h1 {
+        font-size: 30px;
+        line-height: 35px;
+        color: #0ec261;
+        /*padding-left: #{"max(64px, 10vw)"};*/
+        font-weight: bold;
+        @include phone {
+          margin: 0;
+          margin-top: 16px;
+          margin-right: 16px;
+        }
+      }
+    }
+
+    &_nav {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 32px;
+      border: 1px solid #eeeeee;
+      border-right: 0;
+      border-left: 0;
+      @include phone {
+        flex-direction: column;
+        height: auto;
+        margin-top: 16px;
+        svg {
+          display: none;
+        }
+      }
+      a:first-child {
+        @include orderPadding();
+        @include phone {
+          padding-left: 16px;
+        }
+        p {
+          padding-left: 0;
+        }
+      }
+      &_element {
+        margin: 0;
+        padding: 0 16px;
+        font-weight: bold;
+        @include phone {
+          padding: 0 8px;
+        }
+        &_first_order-number {
+          color: #121212;
+          font-weight: bold;
+          @include orderPadding();
+        }
+        &_isActive {
+          color: hsl(148, 87%, 41%);
+        }
+        &_complete {
+          color: #121212;
+        }
+        &_blocked {
+          color: #999999;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}

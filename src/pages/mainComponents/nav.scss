@@ -1,0 +1,179 @@
+@import "../../mixins";
+/*стили панели навигации*/
+.nav {
+  background-color: #111518;
+  position: fixed;
+  width: #{"max(614px, 55vw)"};
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  z-index: 997;
+  transition: width 0.6s;
+  @include tablet {
+    width: 100vw;
+  }
+  @include phone {
+    width: 100vw;
+  }
+  &_hidden {
+    width: clamp(64px, 5vw, 90px);
+    @include phone {
+      width: 0;
+    }
+  }
+  /*стиль кнопки бургера*/
+  &_btn {
+    margin-top: 32px;
+    margin-left: clamp(16px, 1.25vw, 29px);
+    min-height: 32px;
+    min-width: 32px;
+    cursor: pointer;
+    @include phone {
+      margin-top: 20px;
+    }
+    path {
+      stroke: #ffffff;
+      transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+        stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+      @include phone {
+        stroke: #111518;
+      }
+    }
+    /*тут идет анимация кнопки*/
+    :first-child {
+      stroke-dasharray: 60 207;
+      stroke-width: 3;
+    }
+    :nth-child(2) {
+      stroke-dasharray: 60 60;
+      stroke-width: 3;
+    }
+    :last-child {
+      stroke-dasharray: 60 207;
+      stroke-width: 3;
+    }
+    /*кнопка бургера при закрытии*/
+    &_off {
+      path {
+        @include phone {
+          stroke: #ffffff;
+        }
+      }
+      /*и здесь тоже анимация кнопки*/
+      :first-child {
+        stroke-dasharray: 90 207;
+        stroke-dashoffset: -134;
+        stroke-width: 3;
+      }
+      :nth-child(2) {
+        stroke-dasharray: 1 60;
+        stroke-dashoffset: -30;
+        stroke-width: 3;
+      }
+      :last-child {
+        stroke-dasharray: 90 207;
+        stroke-dashoffset: -134;
+        stroke-width: 3;
+      }
+    }
+  }
+  /*элементы навигации - соцсети и другие элементы навигации*/
+  &_menu {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 100%;
+    &_hidden {
+      display: none;
+    }
+    ul {
+      list-style: none;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 37px;
+      padding-left: #{"max(97px, 17%)"};
+      @include phone {
+        padding-left: 16px;
+        font-size: #{"max(22px, 7vw)"};
+      }
+      li:hover {
+        color: #0ec261;
+        cursor: pointer;
+      }
+      li {
+        transition: color 0.2s;
+        @include phone {
+          margin-top: 2vh;
+        }
+      }
+    }
+    &_soc-media {
+      padding-left: #{"max(97px, 17%)"};
+      cursor: pointer;
+      @include phone {
+        padding: 16px;
+      }
+      svg {
+        transition: color 0.2s;
+        margin-right: 56px;
+        &:hover {
+          path {
+            fill: #0ec261;
+          }
+        }
+      }
+    }
+  }
+  /*кнопка выбора языка*/
+  &_lang-select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 2rem;
+    left: 16px;
+    width: 32px;
+    height: 32px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 15px;
+    color: #0ec261;
+    border: solid 1px transparent;
+    border-radius: 50%;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    align-self: center;
+    @include phone {
+      display: none;
+    }
+    &:hover {
+      border: solid 1px #ffffff;
+      border-radius: 50%;
+      color: #fff;
+    }
+    &_hidden {
+      display: none;
+      @include phone {
+        display: flex;
+      }
+    }
+  }
+  &_light {
+    z-index: 80;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+  }
+  &_dark {
+    display: block;
+    background-color: rgba(21, 27, 31, 0.81);
+  }
+}

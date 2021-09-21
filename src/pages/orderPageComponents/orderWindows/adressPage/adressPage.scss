@@ -1,0 +1,67 @@
+@import "../../../../mixins.scss";
+.order_adress {
+  width: #{"max(550px, 70vw)"};
+  width: fit-content;
+  max-width: 736px;
+  display: flex;
+  flex-direction: column;
+  @include phone {
+    padding-left: 0;
+    align-self: center;
+    width: 100%;
+  }
+  @include orderPadding();
+  &_search {
+    /*ширина такая чтоб инпуты корректно равнялись по длине поля ввода*/
+    margin-top: 32px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @include phone {
+      align-items: flex-start;
+    }
+    &_input {
+      display: flex;
+      align-items: flex-end;
+      margin-top: 16px;
+      @include phone {
+        align-items: center;
+      }
+      label {
+        text-align: end;
+        @include phone {
+          text-align: start;
+          width: 50px;
+        }
+      }
+      &_textfield {
+        outline: none;
+        margin-left: 8px;
+        width: 224px;
+        border: none;
+        border-bottom: 1px solid #999;
+      }
+      &_delete {
+        background: none;
+        border: none;
+        border-bottom: 1px solid #999;
+      }
+    }
+  }
+  &_map {
+    p {
+      margin-top: 16px;
+    }
+    &_map {
+      width: clamp(300px, 48vw, 736px);
+      height: auto;
+      padding-top: 16px;
+    }
+  }
+}
+
+.map_element {
+  width: clamp(300px, 48vw, 736px);
+  height: 300px;
+}
