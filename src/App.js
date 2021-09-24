@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { YMaps } from "react-yandex-maps";
 import Login from "./pages/adminPage/loginPage/login.js";
+import ControlPanel from "./pages/adminPage/controlPanel/controlPanel.js";
 
 function App(props) {
   return (
@@ -13,6 +14,7 @@ function App(props) {
       <YMaps>
         <Router>
           <Switch>
+            <Route path="/admin/panel" render={() => <ControlPanel />} />
             <Route path="/admin" render={(props) => <Login />} />
             <Route path="/order/" render={(props) => <Order />} />
             <Route path="/" render={(props) => <MainPage />} />

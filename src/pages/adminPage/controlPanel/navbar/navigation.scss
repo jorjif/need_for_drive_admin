@@ -1,0 +1,50 @@
+.admin_control {
+  &_nav {
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    width: auto;
+    min-width: 250px;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: 0px 1px 75px rgba(90, 97, 105, 0.11),
+      0px 2px 4px rgba(90, 97, 105, 0.12), 0px 7.5px 11px rgba(90, 97, 105, 0.1),
+      0px 3.5px 17.5px rgba(165, 182, 201, 0.1);
+
+    &_element {
+      width: 100%;
+      height: 58px;
+      background: #ffffff;
+      box-shadow: inset 0px -1px 0px #e1e5eb;
+      cursor: pointer;
+      &_pressed {
+        @extend .admin_control_nav_element;
+        background: #fbfbfb;
+        box-shadow: inset 0px -1px 0px #e1e5eb, inset 4px 0px 0px #007bff;
+      }
+      &_content {
+        margin-left: 10%;
+        width: max-content;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+      }
+      &_text {
+        font-size: 15px;
+        color: #3d5170;
+        margin-left: 8px;
+        &_pressed {
+          @extend .admin_control_nav_element_text;
+          color: #007bff;
+        }
+      }
+      &_svg_pressed {
+        path {
+          fill: #007bff;
+        }
+      }
+    }
+  }
+}

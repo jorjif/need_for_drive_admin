@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
   &_buttons {
     display: flex;
@@ -12,6 +13,13 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+  }
+  &_head {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
   }
   &_header {
     margin: 19px 0;
