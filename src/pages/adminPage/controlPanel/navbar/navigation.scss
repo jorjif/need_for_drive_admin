@@ -5,7 +5,7 @@
     top: 0%;
     z-index: 91;
     width: clamp(10%, 267px, 25%);
-    min-width: 250px;
+    min-width: 220px;
     height: 100%;
     background: #ffffff;
     box-shadow: 0px 1px 75px rgba(90, 97, 105, 0.11),
@@ -18,6 +18,7 @@
       background: #ffffff;
       box-shadow: inset 0px -1px 0px #e1e5eb;
       cursor: pointer;
+      list-style: none;
       &:hover {
         background: hsl(0, 0%, 95%);
       }
@@ -38,7 +39,7 @@
       &_text {
         font-size: 15px;
         color: #3d5170;
-        margin-left: 8px;
+        margin-left: 16px;
         &_pressed {
           @extend .admin_control_nav_element_text;
           color: #007bff;
@@ -88,6 +89,9 @@
       flex-flow: row;
       height: 100%;
       width: 100%;
+      img {
+        border-radius: 50%;
+      }
       &_search {
         display: flex;
         flex-direction: row;
@@ -133,7 +137,7 @@
           justify-content: space-around;
           width: clamp(218px, 15vw, 227px);
           height: 50%;
-
+          cursor: pointer;
           &_main {
             display: flex;
             flex-direction: row;
@@ -159,6 +163,10 @@
             0px 7.5px 11px rgba(90, 97, 105, 0.1),
             0px 3.5px 17.5px rgba(165, 182, 201, 0.1);
           transition: all 0.2s;
+          & div:hover {
+            color: #0552a5;
+          }
+
           &_hidden {
             width: 0;
             overflow: hidden;
